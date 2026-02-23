@@ -12,14 +12,19 @@ const About = () => {
         </h2>
 
         <p className="text-gray-300 text-lg leading-8">
-          I am a passionate Full Stack Developer with strong knowledge in Java,
-          React, and web technologies. As a fresher, I focus on writing clean,
-          maintainable code and building real-world projects to improve my
-          skills.
+          I am a dedicated Java Full Stack Developer with hands-on experience 
+          building dynamic web applications using React, Spring Boot, and MySQL. 
+          I have developed real-world projects including a Health Management System 
+          with complete CRUD operations and REST API integration.
           <br /><br />
-          I enjoy learning new technologies and solving problems through
-          practical implementation. I am looking for an opportunity to start my
-          career and grow as a software developer in a professional environment.
+          I focus on writing clean, maintainable code and designing scalable 
+          backend systems. I am passionate about learning modern technologies, 
+          improving problem-solving skills, and continuously enhancing my 
+          development practices.
+          <br /><br />
+          Currently, I am seeking an entry-level opportunity where I can 
+          contribute to meaningful projects and grow as a professional 
+          software developer.
         </p>
       </div>
     </section>

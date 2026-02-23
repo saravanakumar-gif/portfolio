@@ -8,7 +8,7 @@ const projects = [
       "A web application to manage patients, doctors, and appointments with CRUD operations.",
     tech: "React, Java, Spring Boot, MySQL",
     github: "https://github.com/saravanakumar-gif/health-management-frontend.git",
-    live: "",
+    live: "https://health-management-frontend-nzl6-k233cs2wq.vercel.app/login",
   },
   {
     title: "Employee Management System",
