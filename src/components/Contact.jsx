@@ -5,51 +5,51 @@ import { useState } from "react";
 const Contact = () => {
   const [result, setResult] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
+  console.log("ENV TEST:", process.env.REACT_APP_WEB3_FORM_API);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setIsSubmitting(true);
-    setResult("");
+const handleSubmit = async (event) => {
+  event.preventDefault();
+  setIsSubmitting(true);
+  setResult("");
 
-    const accessKey = process.env.REACT_APP_WEB3_FORM_API;
+  const accessKey = process.env.REACT_APP_WEB3_FORM_API;
+  console.log("WEB3 KEY:", accessKey);
 
-    if (!accessKey) {
-      setResult("API key missing ❌");
-      setIsSuccess(false);
-      setIsSubmitting(false);
-      return;
+  if (!accessKey) {
+    setResult("API key missing ❌");
+    setIsSubmitting(false);
+    return;
+  }
+
+  const formData = new FormData(event.target);
+  formData.append("access_key", accessKey);
+
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+    console.log("Web3Forms:", data);
+
+    if (data.success) {
+      setResult("Message sent successfully ✅");
+      event.target.reset();
+    } else {
+      setResult(data.message || "Failed ❌");
     }
+  } catch {
+    setResult("Network error ❌");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
-    const formData = new FormData(event.target);
-    formData.append("access_key", accessKey);
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        setResult("Message sent successfully ✅");
-        setIsSuccess(true);
-        event.target.reset();
-      } else {
-        setResult(data.message || "Failed ❌");
-        setIsSuccess(false);
-      }
-    } catch {
-      setResult("Network error ❌");
-      setIsSuccess(false);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
-    <section
+     <section
       id="contact"
       className="bg-[#0f0f0f] text-white min-h-screen flex items-center justify-center"
     >
