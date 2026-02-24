@@ -18,6 +18,14 @@ const projects = [
     github: "https://github.com/saravanakumar-gif/employee-management-system.git",
     live: "",
   },
+   {
+    title: "Portfolio",
+    description:
+      "A personal developer portfolio showcasing my skills, projects, and experience. Built with modern web technologies to highlight my work and growth as a software developer.",
+    tech: "React,TailwindCss",
+    github: "https://github.com/saravanakumar-gif/portfolio.git",
+    live: "https://lively-muffin-87dcaa.netlify.app/",
+  },
 ];
 
 const Projects = () => {
